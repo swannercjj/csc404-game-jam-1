@@ -1,11 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    private float currentHealth1;
-    private float currentHealth2;
-
     public HealthBar healthBar1;
     public HealthBar healthBar2;
 
@@ -13,10 +10,8 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        currentHealth1 = maxHealth;
-        currentHealth2 = maxHealth;
-
-        healthBar1.
+        healthBar1.setSliderMax(healthBar1.maxHealth);
+        healthBar2.setSliderMax(healthBar2.maxHealth);
     }
 
     // Update is called once per frame
