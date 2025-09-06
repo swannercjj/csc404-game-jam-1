@@ -5,6 +5,7 @@ public class DamageBox : MonoBehaviour
 {
     public GameObject owner;
     public float damageDuration = 0.2f;
+    public int damageAmount = 10;
     private float timer = 0f;
     private HashSet<GameObject> damaged = new HashSet<GameObject>();
     private bool active = false;
@@ -62,8 +63,17 @@ public class DamageBox : MonoBehaviour
         if (obj == owner) return;
         if (damaged.Contains(obj)) return;
 
-        // Simulate damage by printing object name
-        Debug.Log("Damaged: " + obj.name);
+        // Check if the object has a health bar and apply damage
+        HealthBar healthBar = obj.GetComponent<HealthBar>();
+        if (healthBar != null)
+        {
+            healthBar.currentHealth -= damageAmount;
+            if (healthBar.currentHealth < 0)
+                healthBar.currentHealth = 0;
+            
+            healthBar.setSlider(healthBar.currentHealth);
+            Debug.Log("Damaged: " + obj.name + " for " + damageAmount + " damage. Health: " + healthBar.currentHealth);
+        }
 
         damaged.Add(obj);
     }
