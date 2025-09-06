@@ -10,6 +10,10 @@ public class PlayerManager : MonoBehaviour
     [Header("Win Announcement")]
     public GameObject winTextObject;
     public TextMeshProUGUI winText;
+    
+    [Header("Audio")]
+    public AudioClip deathSound;
+    private AudioSource audioSource;
 
     private bool gameEnded = false;
 
@@ -27,6 +31,11 @@ public class PlayerManager : MonoBehaviour
         // Ensure win text is initially disabled
         if (winTextObject != null)
             winTextObject.SetActive(false);
+        
+        // Get or add AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,6 +63,10 @@ public class PlayerManager : MonoBehaviour
         if (gameEnded) return;
         
         gameEnded = true;
+        
+        // Play death sound
+        if (deathSound != null && audioSource != null)
+            audioSource.PlayOneShot(deathSound);
         
         if (winTextObject != null)
             winTextObject.SetActive(true);
