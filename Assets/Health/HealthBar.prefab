@@ -588,4 +588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4ecd239b031a548a81cd9f314cee87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  maxHealth: 100
+  currentHealth: 100
   healthSlider: {fileID: 9170823068806705976}
