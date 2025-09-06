@@ -4,6 +4,8 @@ public class CharacterControllerButLikeWeDontActuallyUseIt : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private Rigidbody rb;
+    public DamageBox damageBox;
+    public float damageDuration = 0.2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +25,12 @@ public class CharacterControllerButLikeWeDontActuallyUseIt : MonoBehaviour
 
         // Apply movement in FixedUpdate for physics
         MoveCharacter(move);
+
+        // Damage on space press
+        if (Input.GetKeyDown(KeyCode.Space) && damageBox != null)
+        {
+            damageBox.DoDamage(gameObject, damageDuration);
+        }
     }
 
     void MoveCharacter(Vector3 move)
