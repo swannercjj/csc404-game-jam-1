@@ -287,7 +287,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementScript
   moveSpeed: 7
-  rotationSpeed: 1
+  rotationSpeed: 720
+  damageBox: {fileID: 0}
+  attackKey: 32
+  moveUpKey: 119
+  moveDownKey: 115
+  moveLeftKey: 97
+  moveRightKey: 100
 --- !u!54 &333971287
 Rigidbody:
   m_ObjectHideFlags: 0
