@@ -65,6 +65,7 @@ public class DamageBox : MonoBehaviour
 
         // Check if the object has a health bar and apply damage
         HealthBar healthBar = obj.GetComponent<HealthBar>();
+        Debug.Log("Object: " + obj.name + ", Has HealthBar: " + (healthBar != null));
         if (healthBar != null)
         {
             healthBar.currentHealth -= damageAmount;
@@ -73,9 +74,7 @@ public class DamageBox : MonoBehaviour
             
             healthBar.setSlider(healthBar.currentHealth);
             Debug.Log("Damaged: " + obj.name + " for " + damageAmount + " damage. Health: " + healthBar.currentHealth);
+            damaged.Add(obj);
         }
-        print("Damaged: " + obj.name);
-
-        damaged.Add(obj);
     }
 }
