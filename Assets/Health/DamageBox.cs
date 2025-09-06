@@ -74,6 +74,7 @@ public class DamageBox : MonoBehaviour
             healthBar.setSlider(healthBar.currentHealth);
             Debug.Log("Damaged: " + obj.name + " for " + damageAmount + " damage. Health: " + healthBar.currentHealth);
         }
+        print("Damaged: " + obj.name);
 
         damaged.Add(obj);
     }
