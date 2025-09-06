@@ -39,6 +39,10 @@ public class CharacterSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            CharacterImage controller = options[currOption].GetComponent<CharacterImage>();
+
+            StartCoroutine(controller.JumpAnim());
+
             CharacterSelectManager.Instance.Choose(1, currOption);
         }
     }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,10 +43,18 @@ public class CharacterSelectManager : MonoBehaviour
     {
         if (player1 != -1 && player2 != -1)
         {
-            GameStart();
+            // delay amountof time 
+            StartCoroutine(DelayStart());
         }
     }
 
+
+    IEnumerator DelayStart()
+    {
+        // play count down animation
+        yield return new WaitForSeconds(5f);
+        GameStart();
+    }
     void GameStart()
     {
         // load next scene
