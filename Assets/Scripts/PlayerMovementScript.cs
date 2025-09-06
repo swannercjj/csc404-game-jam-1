@@ -7,14 +7,38 @@ public class PlayerMovementScript : MonoBehaviour
     public float moveSpeed;
     public float rotationSpeed;
     public DamageBox damageBox;
+    public HealthBar healthBar;
+    public AudioClip attackSound;
+    private AudioSource audioSource;
     public KeyCode attackKey = KeyCode.Space;
     public KeyCode moveUpKey = KeyCode.W;
     public KeyCode moveDownKey = KeyCode.S;
     public KeyCode moveLeftKey = KeyCode.A;
     public KeyCode moveRightKey = KeyCode.D;
+    public KeyCode blockKey = KeyCode.E;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     void Update()
     {
+        if (Input.GetKey(blockKey))
+        {
+            healthBar.isBlocking = true;
+            return;
+        }
+        else
+        {
+            healthBar.isBlocking = false;
+        }
+
+
         float horizontal = 0f;
         float vertical = 0f;
 
@@ -36,7 +60,12 @@ public class PlayerMovementScript : MonoBehaviour
         // Attack input
         if (Input.GetKeyDown(attackKey) && damageBox != null)
         {
-            damageBox.DoDamage(gameObject, damageBox.damageDuration);
+            damageBox.DoDamage(gameObject, damageBox.damageDuration, transform);
+            
+            if (attackSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(attackSound);
+            }
         }
     }
 }

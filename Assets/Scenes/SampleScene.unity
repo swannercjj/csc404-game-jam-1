@@ -675,6 +675,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   isAlive: 1
+  isBlocking: 0
   healthSlider: {fileID: 1891677095}
 --- !u!4 &413493349 stripped
 Transform:
@@ -928,6 +929,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2445824940961424859, guid: 3ec39c55f09d46c499d35476b5f56c73, type: 3}
+      propertyPath: blockKey
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445824940961424859, guid: 3ec39c55f09d46c499d35476b5f56c73, type: 3}
       propertyPath: attackKey
       value: 117
       objectReference: {fileID: 0}
@@ -935,6 +940,10 @@ PrefabInstance:
       propertyPath: damageBox
       value: 
       objectReference: {fileID: 286760955}
+    - target: {fileID: 2445824940961424859, guid: 3ec39c55f09d46c499d35476b5f56c73, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 413493346}
     - target: {fileID: 2445824940961424859, guid: 3ec39c55f09d46c499d35476b5f56c73, type: 3}
       propertyPath: moveUpKey
       value: 105
@@ -1062,6 +1071,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   isAlive: 1
+  isBlocking: 0
   healthSlider: {fileID: 1891677095}
 --- !u!4 &736653480 stripped
 Transform:
@@ -1469,6 +1479,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   isAlive: 1
+  isBlocking: 0
   healthSlider: {fileID: 1891677095}
 --- !u!1001 &1096550502
 PrefabInstance:
@@ -1486,6 +1497,10 @@ PrefabInstance:
       propertyPath: damageBox
       value: 
       objectReference: {fileID: 1561118196}
+    - target: {fileID: 2445824940961424859, guid: 3ec39c55f09d46c499d35476b5f56c73, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 736653477}
     - target: {fileID: 2445824940961424859, guid: 3ec39c55f09d46c499d35476b5f56c73, type: 3}
       propertyPath: rotationSpeed
       value: 16

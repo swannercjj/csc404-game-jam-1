@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth = 100;
     public bool isAlive = true;
+    public bool isBlocking = false;
 
     public Slider healthSlider;
     
